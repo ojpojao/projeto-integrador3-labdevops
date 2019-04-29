@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
 		zabbix.vm.hostname = "zabbix"
 		zabbix.vm.network "private_network", ip: "192.168.100.10"
 		zabbix.vm.network "forwarded_port", guest: 80, host: 8080
+		zabbix.vm.network "public_network"
 		zabbix.ssh.insert_key = false
 		zabbix.ssh.keys_only = false
 		zabbix.ssh.username = "vagrant"
