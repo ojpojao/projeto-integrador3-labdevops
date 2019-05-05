@@ -8,7 +8,7 @@
 
 
 
-# Exemplo no Windows 10
+## Exemplo no Windows 10
 ### Para o servidor execute
 ```
 vagrant init paulojoao93/PI3-zabbix-server
