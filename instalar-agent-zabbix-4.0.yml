@@ -1,0 +1,49 @@
+- name: "Instalar Agent Zabbix 4.0"
+  hosts: 192.168.100.20
+
+  tasks:
+    - name: "Download repositório Zabbix Agent 4.0"
+      get_url: 
+        url: https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2+stretch_all.deb
+        dest: /home/vagrant/zabbix-release_4.0-2+stretch_all.deb
+    
+    - name: "Instalar repositório Zabbix Agent 4.0"
+      shell: dpkg -i /home/vagrant/zabbix-release_4.0-2+stretch_all.deb
+      become: yes
+      become_method: sudo
+
+    # - name: "Atualizando repositório para incluir Zabbix Agent"
+    #     apt:
+    #         update_cache: yes
+
+    - name: "Atualizando repositório para incluir Zabbix Agent"
+      shell: apt update -y
+      become: yes
+      become_method: sudo    
+
+    - name: "Instalando pacote Zabbix Agent"
+      shell: apt install zabbix-agent -y
+      become: yes
+      become_method: sudo
+
+    - lineinfile:
+        path: /etc/zabbix/zabbix_agentd.conf
+        regexp: '^Server='
+        line: 'Server=192.168.100.10'
+        owner: root
+        group: root
+        mode: 0644
+
+    - lineinfile:
+        path: /etc/zabbix/zabbix_agentd.conf
+        regexp: '^ServerActive='
+        line: 'ServerActive=192.168.100.10'
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "Reinicia o serviço zabbix-agent"
+      service:
+        name: zabbix-agent
+        state: restarted
+        #enabled: yes
