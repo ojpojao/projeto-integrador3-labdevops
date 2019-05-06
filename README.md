@@ -1,16 +1,12 @@
 # Setup para o LAB Projeto Integrador 3
 
-1. - Instale o VirtualBox e o Vagrant
-2. - certifique-se que o vagrant está no PATH do seu SO
-3. - para a máquina do servidor, execute o seguinte comando *vagrant init paulojoao93/PI3-zabbix-server*
-4. - para a máquina que será instalado o zabbix-agent 4.0, use o comando *vagrant init paulojoao93/PI3-zabbix-agente* 
-5. - por comodidade, todas as senhas foram setadas para "vagrant"
-
-
+1. Instale o VirtualBox e o Vagrant
+2. Certifique-se que o vagrant está no PATH de executáveis do seu SO
+3. Acesse a URL *https://github.com/paulojoao93/projeto-integrador3-labdevops*  e clique no botão *clone or download* e escolha a opção zip
+4. Descompate o arquivo. Abra um terminal na pasta descompactada
 
 ## Exemplo no Windows 10
-### Para o servidor execute
+- Abra um terminal e execute os comandos abaixo:
 ```
 vagrant init paulojoao93/PI3-zabbix-server
 ```
-
