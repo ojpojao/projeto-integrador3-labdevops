@@ -5,10 +5,10 @@
     - name: "Download repositório Zabbix Agent 4.0"
       get_url: 
         url: https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2+stretch_all.deb
-        dest: /home/vagrant/zabbix-release_4.0-2+stretch_all.deb
+        dest: /tmp/zabbix-release_4.0-2+stretch_all.deb
     
     - name: "Instalar repositório Zabbix Agent 4.0"
-      shell: dpkg -i /home/vagrant/zabbix-release_4.0-2+stretch_all.deb
+      shell: dpkg -i /tmp/zabbix-release_4.0-2+stretch_all.deb
       become: yes
       become_method: sudo
 
